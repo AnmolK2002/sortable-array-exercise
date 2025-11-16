@@ -1,26 +1,24 @@
-import java.util.Arrays;
-
 public class SortProgram {
-
-    // Feature 1: sort integers
-    public static int[] sortIntegers(int[] nums) {
-        Arrays.sort(nums);
-        return nums;
-    }
-
-    // Feature 2: sort strings
-    public static String[] sortStrings(String[] words) {
-        Arrays.sort(words);
-        return words;
-    }
-
     public static void main(String[] args) {
-        // Test integer sorting
-        int[] nums = {5, 3, 9, 1};
-        System.out.println("Sorted integers: " + Arrays.toString(sortIntegers(nums)));
+        String[] words = {"dog", "cat", "bat"};
 
-        // Test string sorting
-        String[] words = {"banana", "apple", "dog"};
-        System.out.println("Sorted strings: " + Arrays.toString(sortStrings(words)));
+        System.out.print("Before sorting: ");
+        for (String w : words) System.out.print(w + " ");
+        System.out.println();
+
+        // simple sort
+        for (int i = 0; i < words.length - 1; i++) {
+            for (int j = i + 1; j < words.length; j++) {
+                if (words[i].compareTo(words[j]) > 0) {
+                    String temp = words[i];
+                    words[i] = words[j];
+                    words[j] = temp;
+                }
+            }
+        }
+
+        System.out.print("After sorting: ");
+        for (String w : words) System.out.print(w + " ");
+        System.out.println();
     }
 }
